@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     description:
       "Full‑stack developer crafting high‑performance web experiences.",
     images: [OG_IMAGE],
-    creator: "@yourhandle", // optional: update if you have one
+    creator: "@sabbir-offc", // optional: update if you have one
   },
   robots: {
     index: true,
@@ -114,8 +114,8 @@ export default function RootLayout({
     jobTitle: "Full‑stack Developer",
     sameAs: [
       // add your profiles if you have them
-      // "https://github.com/yourname",
-      // "https://www.linkedin.com/in/yourname/",
+      "https://github.com/sabbir-offc",
+      "https://www.linkedin.com/in/sabbiroffc/",
     ],
   };
 
