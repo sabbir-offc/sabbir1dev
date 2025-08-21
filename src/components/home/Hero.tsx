@@ -106,7 +106,7 @@ export default function Hero() {
           <div className="ml-auto flex items-center gap-2">
             <a
               aria-label="GitHub"
-              href="https://github.com/your-handle"
+              href="https://github.com/sabbir-offc"
               target="_blank"
               rel="noreferrer"
               className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border hover:bg-muted"
@@ -115,7 +115,7 @@ export default function Hero() {
             </a>
             <a
               aria-label="LinkedIn"
-              href="https://linkedin.com/in/your-handle"
+              href="https://linkedin.com/in/sabbiroffc"
               target="_blank"
               rel="noreferrer"
               className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border hover:bg-muted"

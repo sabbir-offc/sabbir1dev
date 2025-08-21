@@ -193,7 +193,7 @@ export default function AboutMe() {
               time: "Oct 2024 — Jul 2025",
               points: [
                 "Maintained the entire company system and daily operations.",
-                "Managed workflows, lead distribution, and reporting; improved efficiency and security.",
+                "Managed workflows, and reporting; improved efficiency and security.",
               ],
             },
             {
