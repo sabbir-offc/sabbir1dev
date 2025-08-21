@@ -1,26 +1,159 @@
 @import "tailwindcss";
 
+/* ===== Theme tokens (Tailwind v4) =====
+   Any --color-* becomes utilities like bg-*, text-*, border-*
+   e.g. --color-background -> bg-background, text-background
+*/
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(222 47% 11%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(222 47% 11%);
+
+  --color-muted: hsl(210 40% 96%);
+  --color-muted-foreground: hsl(215 16% 47%);
+
+  --color-border: hsl(214 32% 91%);
+  --color-input: hsl(214 32% 91%);
+  --color-ring: hsl(222 84% 60%);
+
+  --color-primary: hsl(222 84% 56%);
+  --color-primary-foreground: hsl(210 40% 98%);
+
+  --color-secondary: hsl(210 40% 96%);
+  --color-secondary-foreground: hsl(222 47% 11%);
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.5rem;
+}
+
+/* Dark mode (works with next-themes ThemeProvider attribute="class") */
+.dark {
+  --color-background: hsl(222 47% 5%);
+  --color-foreground: hsl(210 40% 98%);
+
+  --color-card: hsl(222 47% 7%);
+  --color-card-foreground: hsl(210 40% 98%);
+
+  --color-muted: hsl(217 33% 17%);
+  --color-muted-foreground: hsl(215 20% 65%);
+
+  --color-border: hsl(217 33% 17%);
+  --color-input: hsl(217 33% 17%);
+  --color-ring: hsl(222 84% 70%);
+
+  --color-primary: hsl(222 84% 70%);
+  --color-primary-foreground: hsl(222 47% 5%);
+
+  --color-secondary: hsl(217 33% 14%);
+  --color-secondary-foreground: hsl(210 40% 98%);
+}
+
+/* Base */
+html,
+body,
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Optional aura bg you used earlier */
+.bg-aura {
+  background: radial-gradient(
+      1200px 600px at 10% -10%,
+      hsl(var(--color-primary) / 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      1000px 500px at 110% 10%,
+      hsl(var(--color-muted-foreground) / 0.12),
+      transparent 60%
+    );
+}
+
+/* Utility helper */
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--color-ring) / 1),
+    0 0 0 4px hsl(var(--color-background) / 1);
+}
+
+/* Example animations reused from earlier */
+@keyframes float-up {
+  from {
+    transform: translateY(8px);
+  }
+
+  to {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-up {
+  animation: float-up 6s ease-in-out infinite alternate;
+}
+.control {
+  @apply w-full rounded-2xl border border-border bg-background/70 backdrop-blur px-5 pt-5 pb-2 text-sm shadow-sm outline-none transition;
+  @apply focus:border-primary focus:ring-2 focus:ring-primary/40;
+}
+
+.label {
+  @apply pointer-events-none absolute left-4 top-3 text-sm text-muted-foreground transition-all;
+}
+
+.wrap {
+  @apply relative;
+}
+
+.peer:placeholder-shown ~ .label {
+  @apply top-4 text-base text-muted-foreground/70;
+}
+
+.peer:focus ~ .label {
+  @apply top-3 text-sm text-primary;
+}
+
+.invalid .control {
+  @apply border-red-500 focus:ring-red-400;
+}
+
+.invalid .label {
+  @apply text-red-600;
+}
+
+.required-dot::after {
+  content: " *";
+  @apply text-red-600;
+}
+/* Unified control for input/select/textarea */
+.control {
+  /* size & layout */
+  @apply w-full rounded-2xl border bg-background/70 backdrop-blur px-5 py-3.5 text-sm shadow-sm outline-none transition;
+  /* interaction */
+  @apply focus:border-primary focus:ring-2 focus:ring-primary/40;
+}
+
+/* Match select height with inputs */
+select.control {
+  @apply pr-10;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%),
+    linear-gradient(to right, transparent, transparent);
+  background-position: calc(100% - 18px) calc(1.1em),
+    calc(100% - 13px) calc(1.1em), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.9em;
+  background-repeat: no-repeat;
+}
+
+/* Error state */
+.invalid .control {
+  @apply border-red-500 focus:ring-red-400;
 }
