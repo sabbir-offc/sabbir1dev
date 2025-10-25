@@ -147,7 +147,6 @@ export default function ProjectsPreview() {
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  // Hover tilt
   const ref = useRef<HTMLDivElement>(null);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);

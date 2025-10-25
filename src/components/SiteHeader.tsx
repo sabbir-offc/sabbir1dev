@@ -37,7 +37,6 @@ export default function SiteHeader() {
 
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 8));
 
-  // Close drawer on route change
   useEffect(() => setOpen(false), [pathname]);
 
   return (

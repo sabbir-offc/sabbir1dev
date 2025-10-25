@@ -86,14 +86,13 @@ export default function AboutMe() {
           </div>
         </div>
 
-        {/* Portrait / graphic (swap src to your photo) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl border bg-background/70 shadow-xl"
         >
           <Image
-            src="/me.jpg" // put your photo at public/me.jpg
+            src="/me.jpg" 
             alt="Sabbir Howlader"
             fill
             sizes="(min-width: 768px) 40vw, 80vw"

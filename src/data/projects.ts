@@ -1,17 +1,16 @@
-// src/data/projects.ts
 export type Project = {
   slug: string;
   title: string;
-  tagline: string; // short one-liner
-  brief: string; // 2–4 sentence overview
+  tagline: string;
+  brief: string; //
   category: "Realtime" | "E‑Commerce" | "Portfolio" | "Admin";
-  points: string[]; // highlights / bullet points
-  tech: string[]; // badges
-  cover: string; // 1200x630 recommended
-  gallery?: string[]; // extra images
+  points: string[];
+  tech: string[];
+  cover: string;
+  gallery?: string[];
   links?: { label: string; href: string }[];
-  period?: string; // e.g., "2025"
-  role?: string; // your role(s)
+  period?: string;
+  role?: string;
 };
 
 export const projects: Project[] = [
@@ -41,8 +40,8 @@ export const projects: Project[] = [
     cover: "/preview/chat-cover.png",
     gallery: ["/preview/chat-1.png", "/preview/chat-2.png"],
     links: [
-      //   { label: "Live", href: "https://..." },
-      //   { label: "GitHub", href: "https://..." },
+      //   { label: "Live", href: "no link" },
+      //   { label: "GitHub", href: "no link" },
     ],
     period: "2025",
     role: "Full‑Stack Developer",

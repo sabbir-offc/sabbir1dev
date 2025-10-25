@@ -5,11 +5,9 @@ import { useEffect, useRef } from "react";
 export default function TechMarquee({ items }: { items: string[] }) {
   const ref = useRef<HTMLDivElement>(null);
 
-  // duplicate items for seamless loop
   const list = [...items, ...items];
 
   useEffect(() => {
-    // reduce motion preference
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -18,7 +16,7 @@ export default function TechMarquee({ items }: { items: string[] }) {
     let rafId: number;
     let x = 0;
     const tick = () => {
-      x -= 0.6; // speed
+      x -= 0.6; 
       el.style.transform = `translateX(${x}px)`;
       if (Math.abs(x) > el.scrollWidth / 2) x = 0;
       rafId = requestAnimationFrame(tick);

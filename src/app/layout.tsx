@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -14,7 +13,7 @@ const inter = Inter({
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   "http://localhost:3000";
-const OG_IMAGE = "/og.png"; // put your OG image at public/og.png (1200x630)
+const OG_IMAGE = "/og.png"; 
 
 // ----- SEO: Metadata -----
 export const metadata: Metadata = {
@@ -79,7 +78,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [{ url: "/favicon.ico" }],
-    apple: [{ url: "/apple-touch-icon.png" }], // optional, add if present
+    apple: [{ url: "/apple-touch-icon.png" }], 
   },
   category: "technology",
   applicationName: "Sabbir — Portfolio",
@@ -113,7 +112,6 @@ export default function RootLayout({
     url: SITE_URL,
     jobTitle: "Full‑stack Developer",
     sameAs: [
-      // add your profiles if you have them
       "https://github.com/sabbir-offc",
       "https://www.linkedin.com/in/sabbiroffc/",
     ],
@@ -138,7 +136,6 @@ export default function RootLayout({
       className="h-full scroll-smooth antialiased"
     >
       <head>
-        {/* JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

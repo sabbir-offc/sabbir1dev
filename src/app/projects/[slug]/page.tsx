@@ -1,4 +1,3 @@
-// app/projects/[slug]/page.tsx
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,11 +14,9 @@ import {
 
 type Params = { slug: string };
 
-// Prebuild static paths (unchanged)
 export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
-// NOTE: params is a Promise in Next 15
 export async function generateMetadata({
   params,
 }: {
@@ -113,7 +110,6 @@ export default async function ProjectDetail({
         </div>
       </div>
 
-      {/* Layout: sticky sidebar + content */}
       <div className="mt-10 grid gap-8 md:grid-cols-[1fr_320px]">
         {/* Main content */}
         <div className="space-y-10">
@@ -154,8 +150,7 @@ export default async function ProjectDetail({
             </section>
           )}
 
-          {/* Learnings / Notes (optional pattern) */}
-          {/* You can add sections like “Performance wins”, “Architecture”, etc. */}
+          
         </div>
 
         {/* Sticky sidebar */}

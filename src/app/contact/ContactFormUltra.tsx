@@ -18,7 +18,6 @@ export default function ContactFormUltra() {
   const [state, setState] = useState<FormState>("idle");
   const [error, setError] = useState<string | null>(null);
 
-  // fields
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
@@ -28,7 +27,6 @@ export default function ContactFormUltra() {
   const [message, setMessage] = useState("");
   const [consent, setConsent] = useState(true);
 
-  // derived
   const endpoint = useMemo(
     () => (FORM_ID ? `https://formspree.io/f/${FORM_ID}` : null),
     []
@@ -37,14 +35,12 @@ export default function ContactFormUltra() {
   const formRef = useRef<HTMLFormElement>(null);
   const msgLimit = 1200;
 
-  // validity
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const nameValid = name.trim().length > 1;
   const msgValid = message.trim().length > 10;
   const canSubmit =
     nameValid && emailValid && msgValid && state !== "submitting";
 
-  // autosize textarea
   const messageRef = useRef<HTMLTextAreaElement | null>(null);
   useEffect(() => {
     const el = messageRef.current;
@@ -345,7 +341,6 @@ function Floating({
       {/* Input/Select/Textarea */}
       {children}
 
-      {/* Notched chip label (never overlaps content) */}
       <label
         htmlFor={id}
         className={[

@@ -1,4 +1,3 @@
-// app/contact/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContactFormUltra from "./ContactFormUltra";

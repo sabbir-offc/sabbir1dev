@@ -1,18 +1,14 @@
-// app/page.tsx (Server Component)
 import Hero from "@/components/home/Hero";
 import Highlights from "@/components/home/Highlights";
 import ProjectsPreview from "@/components/home/ProjectsPreview";
 import SkillsStrip from "@/components/home/SkillsStrip";
 import CTASection from "@/components/home/CTASection";
-
-// NEW
 import Experience from "@/components/home/Experience";
 import ScrollProgress from "@/components/home/ScrollProgress";
 
 export default function HomePage() {
   return (
     <>
-      {/* Thin progress bar on scroll */}
       <ScrollProgress />
         <Hero />
         <Highlights />
